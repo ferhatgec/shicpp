@@ -20,7 +20,8 @@ class Shicpp_Parse {
 
     std::vector<std::string> tokens;
 
-    bool is_data = false;
+    bool is_data    = false;
+    bool is_comment = false;
 public:
     Shicpp_Parse(const Shicpp_Highlight& data) noexcept {
         this->highlight = data;
@@ -43,22 +44,43 @@ public:
             this->tokens.push_back("\n");
         }
 
+
         for(auto& token : this->tokens) {
             if(token.empty()) continue;
 
+            if(this->is_comment) {
+                // !!!!!attention!!!!!
+                if(token.back() != '\n') {
+                    generated.append(this->highlight.Comment(token));
+                    continue;
+                }
+
+                this->is_comment = false;
+            }
+
             if(this->is_data) {
-                if(token.back() != '"') {
-                    generated.append(token);
+                generated.append(this->highlight.VarData(token));
+
+                if(token.back() != this->highlight.data.builtins[VariableData][0]) {
                     continue;
                 }
 
                 this->is_data = false;
+                continue;
             }
 
-            if(token.front() == '"' || token.back() == '"') {
+            if(token == this->highlight.data.builtins[SingleLineComment]) {
+                this->is_comment = true;
+                generated.append(this->highlight.Comment(token));
+
+                continue;
+            }
+
+            if(token.front() == this->highlight.data.builtins[VariableData][0]
+                || token.back() == this->highlight.data.builtins[VariableData][0]) {
                 this->is_data = true;
 
-                generated.append(token + " ");
+                generated.append(this->highlight.VarData(token));
 
                 continue;
             }

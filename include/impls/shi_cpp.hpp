@@ -55,6 +55,20 @@ namespace CPP {
         };
     }
 
+    static std::vector<std::string> BuiltinKeywords() noexcept {
+        return std::vector<std::string> {
+            "//", // SingleLineComment
+            "\""  // VariableData
+        };
+    }
+
+    static std::vector<std::string> BuiltinColors() noexcept {
+        return std::vector<std::string> {
+            colorful::ok(Colors::LightBlack, Types::Light), // SingleLineComment,
+            colorful::ok(Colors::White,      Types::Light)  // VariableData
+        };
+    }
+
     static std::vector<std::string> InitOperatorColors() noexcept {
         return std::vector<std::string> {
             colorful::ok(Colors::Yellow, Types::Light), // GlobalOperators::Addition    0
