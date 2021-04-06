@@ -100,7 +100,7 @@ public:
 
         if(temporary.length() > 1) {
             for(auto &token : this->data.keywords) {
-                if (token == temporary) {
+                if(token == temporary) {
                     return this->data.colors[i] + temporary + "\033[0m ";
                 }
 

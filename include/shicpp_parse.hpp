@@ -49,7 +49,6 @@ public:
             if(token.empty()) continue;
 
             if(this->is_comment) {
-                // !!!!!attention!!!!!
                 if(token.back() != '\n') {
                     generated.append(this->highlight.Comment(token));
                     continue;

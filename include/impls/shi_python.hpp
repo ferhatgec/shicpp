@@ -5,38 +5,29 @@
 //
 //
 
-#ifndef SHI_CPP_HPP
-#define SHI_CPP_HPP
+#ifndef SHI_PYTHON_HPP
+#define SHI_PYTHON_HPP
 
 #include "../shicpp_colorful.hpp"
 
 //
-// SHiC++ highlighting interface for C++.
+// SHiC++ highlighting interface for Python.
 //
 
-namespace CPP {
+namespace Python {
     static std::vector<std::string> InitKeywords() noexcept {
         return std::vector<std::string> {
                 "int",
                 "float",
-                "double"
-                "long",
+                "str",
                 "char",
 
-                "int8_t",
-                "int16_t",
-                "int32_t",
-                "int64_t",
-
-                "uint8_t",
-                "uint16_t",
-                "uint32_t",
-                "uint64_t",
-
                 "if",
+                "elif",
                 "else",
 
-                "#include"
+                "import",
+                "from"
         };
     }
 
@@ -44,31 +35,22 @@ namespace CPP {
         return std::vector<std::string> {
             colorful::ok(Colors::Red, Types::Light), // int
             colorful::ok(Colors::Red, Types::Light), // float
-            colorful::ok(Colors::Red, Types::Light), // double
-            colorful::ok(Colors::Red, Types::Light), // long
+            colorful::ok(Colors::Red, Types::Light), // str
             colorful::ok(Colors::Red, Types::Light), // char
 
-            colorful::ok(Colors::Red, Types::Light), // int8_t
-            colorful::ok(Colors::Red, Types::Light), // int16_t
-            colorful::ok(Colors::Red, Types::Light), // int32_t
-            colorful::ok(Colors::Red, Types::Light), // int64_t
-
-            colorful::ok(Colors::Red, Types::Light), // uint8_t
-            colorful::ok(Colors::Red, Types::Light), // uint16_t
-            colorful::ok(Colors::Red, Types::Light), // uint32_t
-            colorful::ok(Colors::Red, Types::Light), // uint64_t
-
             colorful::ok(Colors::LightRed, Types::Light), // if
+            colorful::ok(Colors::LightRed, Types::Light), // elif
             colorful::ok(Colors::LightRed, Types::Light), // else
 
-            colorful::ok(Colors::Yellow, Types::Light  )  // #include
+            colorful::ok(Colors::Yellow, Types::Light     ), // import
+            colorful::ok(Colors::LightYellow, Types::Light)  // from
         };
     }
 
     static std::vector<std::string> BuiltinKeywords() noexcept {
         return std::vector<std::string> {
-            "//", // SingleLineComment
-            "\""  // VariableData
+            "#", // SingleLineComment
+            "'" // VariableData
         };
     }
 

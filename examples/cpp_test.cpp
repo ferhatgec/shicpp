@@ -1,7 +1,7 @@
 #include <iostream>
-#include "include/shicpp_parse.hpp"
+#include "../include/shicpp_parse.hpp"
 
-#include "include/impls/shi_cpp.hpp"
+#include "../include/impls/shi_cpp.hpp"
 
 int main() {
     Shicpp_Highlight highlight;
