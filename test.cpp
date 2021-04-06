@@ -16,8 +16,9 @@ int main() {
 
     std::cout << parse.Parse("#include <iostream>\n"
                 "\n"
-                "int main(int argc) {\n"
-                "    std::cout << \"Hello, world!\\n\";\n"
+                "int main(int argc, char** argv) {\n"
+                "    int test = 10 + 20;\n"
+                "    std::cout << \"10 + 20 = \" << test << '\\n';\n"
                 "}");
 
     return 0;
