@@ -7,8 +7,9 @@ int main() {
     Shicpp_Highlight highlight;
 
     highlight.Init(LanguageData{
-       CPP::InitKeywords(),
-       CPP::InitColors()
+       CPP::InitKeywords()      ,
+       CPP::InitColors()        ,
+       CPP::InitOperatorColors()
     });
 
     Shicpp_Parse parse(highlight);

@@ -52,6 +52,28 @@ namespace CPP {
             "\033[0;31m", // uint64_t
         };
     }
+
+    static std::vector<std::string> InitOperatorColors() noexcept {
+        return std::vector<std::string> {
+            "\033[0;34m", // GlobalOperators::Addition    0
+            "\033[0;34m", // GlobalOperators::Subtraction
+            "\033[0;34m", // GlobalOperators::Division
+            "\033[0;34m", // GlobalOperators::Multiplication
+            "\033[0;34m", // GlobalOperators::Modulo
+
+            "\033[0;32m", // GlobalOperators::GreaterThan
+            "\033[0;32m", // GlobalOperators::LessThan
+
+            "\033[0;91m", // GlobalOperators::Not
+
+            "\033[0;94m", // GlobalOperators::AndBit
+            "\033[0;94m", // GlobalOperators::OrBit
+            "\033[0;94m", // GlobalOperators::XorBit
+            "\033[0;94m", // GlobalOperators::NotBit
+
+            "\033[0;97m"  // GlobalOperators::Assignment
+        };
+    }
 }
 
 #endif // SHI_CPP_HPP
